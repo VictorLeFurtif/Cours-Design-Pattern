@@ -3,14 +3,19 @@ using Commands;
 using Enum;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Vector2 = System.Numerics.Vector2;
+
 
 namespace Manager
 {
-    public class InputManager
+    public class InputManager : MonoBehaviour
     {
-        [SerializeField] private CommandInvoker commandInvoker;
-        
+        private CommandInvoker commandInvoker;
+
+        private void Awake()
+        {
+            commandInvoker = new CommandInvoker();
+        }
+
         public void OnMove(InputValue inputValue)
         {
             var v = inputValue.Get<Vector2>();
@@ -31,9 +36,15 @@ namespace Manager
                 case Direction.Right:
                     commandInvoker.DoCommand(new CommandRight());
                     break;
+                case Direction.Null : break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(direction), direction, null);
             }
+        }
+
+        public void OnUndo()
+        {
+            commandInvoker.UndoCommand();
         }
     }
 }

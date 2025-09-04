@@ -29,16 +29,16 @@ namespace Controller
             switch (_direction)
             {
                 case Direction.Front:
-                    transform.position = new Vector2(transform.position.x + movingDistance, transform.position.y); 
+                    transform.position = new Vector2(transform.position.x, transform.position.y + movingDistance); 
                     break;
                 case Direction.Back:
-                    transform.position = new Vector2(transform.position.x - movingDistance, transform.position.y); 
+                    transform.position = new Vector2(transform.position.x, transform.position.y - movingDistance);
                     break;
                 case Direction.Left:
-                    transform.position = new Vector2(transform.position.x, transform.position.y - movingDistance); 
+                    transform.position = new Vector2(transform.position.x - movingDistance, transform.position.y);
                     break;
                 case Direction.Right:
-                    transform.position = new Vector2(transform.position.x, transform.position.y + movingDistance); 
+                    transform.position = new Vector2(transform.position.x + movingDistance, transform.position.y); 
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(_direction), _direction, null);

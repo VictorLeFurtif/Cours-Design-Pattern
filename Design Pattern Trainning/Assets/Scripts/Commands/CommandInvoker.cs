@@ -18,7 +18,10 @@ namespace Commands
 
         public void UndoCommand()
         {
-            commandStack.Pop().Undo();
+            if (commandStack.Count > 0)
+            {
+                commandStack.Pop().Undo();
+            }
         }
 
         
