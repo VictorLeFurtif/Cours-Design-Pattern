@@ -18,17 +18,6 @@ public class Node
     {
         if (String.Compare(value,target.value) < 0)
         {
-            if (leftReference == null)
-            {
-                leftReference = target;
-            }
-            else
-            {
-                leftReference.Add(target);
-            }
-        }
-        else
-        {
             if (rightReference == null)
             {
                 rightReference = target;
@@ -38,32 +27,51 @@ public class Node
                 rightReference.Add(target);
             }
         }
+        else
+        {
+            
+            if (leftReference == null)
+            {
+                leftReference = target;
+            }
+            else
+            {
+                leftReference.Add(target);
+            }
+        }
     }
 
     public void Search(Node target)
     {
-        if (String.Compare(value,target.value) < 0)
+        if (String.Compare(value,target.value) == 0) //Found it same value
         {
-            if (leftReference == null)
-            {
-                Console.WriteLine("Not Found");
-                return;
-            }
-            else
-            {
-                leftReference.Search(target);
-            }
+            Console.WriteLine("Found the word : " + value);
+            return;
         }
-        else
+        
+        if (String.Compare(value,target.value) < 0)
         {
             if (rightReference == null)
             {
-                Console.WriteLine("Not Found");
+                Console.WriteLine("Didnt Found the word : " + target.value); 
                 return;
             }
             else
             {
                 rightReference.Search(target);
+            }
+        }
+        else
+        {
+            
+            if (leftReference == null)
+            {
+                Console.WriteLine("Didnt Found the word : " + target.value); 
+                return;
+            }
+            else
+            {
+                leftReference.Search(target);
             }
         }
     }

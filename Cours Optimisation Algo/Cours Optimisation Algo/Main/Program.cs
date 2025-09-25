@@ -13,6 +13,7 @@ internal class Program
         tree.Add(new Node("cours"));
         tree.Add(new Node("arara"));
         tree.Add(new Node("mmque"));
-        tree.Display();
+        tree.Search("caca");
+        tree.Search("coucou");
     }
 }

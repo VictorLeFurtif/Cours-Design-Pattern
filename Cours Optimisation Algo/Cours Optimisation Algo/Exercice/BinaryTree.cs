@@ -50,19 +50,15 @@ public class BinaryTree
         }
     }
 
-    private void Search(Node target)
+    public void Search(string content)
     {
-        bool found = false;
-
-        if (rootNode.value == target.value)
+        if (rootNode == null)
         {
-            found = true;
-            Console.WriteLine("We found your word : " + target);
+            Console.WriteLine("Didnt Found the word : " + content);
             return;
         }
-        else
-        {
-            
-        }
+        
+        Node target = new Node(content);
+        rootNode.Search(target);
     }
 }
