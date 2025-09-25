@@ -61,4 +61,26 @@ public class BinaryTree
         Node target = new Node(content);
         rootNode.Search(target);
     }
+
+    public void Minimum()
+    {
+        if (rootNode == null)
+        {
+            Console.WriteLine("Didnt Found minimum because empty tree : ");
+            return;
+        }
+        
+        rootNode.Minimum();
+    }
+    
+    public void Maximum()
+    {
+        if (rootNode == null)
+        {
+            Console.WriteLine("Didnt Found maximum because empty tree : ");
+            return;
+        }
+        
+        rootNode.Maximum();
+    }
 }

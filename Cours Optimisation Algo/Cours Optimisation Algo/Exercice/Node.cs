@@ -40,6 +40,27 @@ public class Node
             }
         }
     }
+    
+    public void Minimum()
+    {
+        if (leftReference == null)
+        {
+            Console.WriteLine("The Minimum is : "+ value);
+            return;
+        }
+        leftReference.Minimum();
+    }
+    
+    public void Maximum()
+    {
+        if (rightReference == null)
+        {
+            Console.WriteLine("The Maximum is : "+ value);
+            return;
+        }
+        rightReference.Maximum();
+    }
+    
 
     public void Search(Node target)
     {
