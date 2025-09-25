@@ -1,0 +1,14 @@
+C:\Users\v.baz\RiderProjects\Cours Optimisation Algo\Cours Optimisation Algo\bin\Debug\net9.0\Cours Optimisation Algo.exe
+C:\Users\v.baz\RiderProjects\Cours Optimisation Algo\Cours Optimisation Algo\bin\Debug\net9.0\Cours Optimisation Algo.deps.json
+C:\Users\v.baz\RiderProjects\Cours Optimisation Algo\Cours Optimisation Algo\bin\Debug\net9.0\Cours Optimisation Algo.runtimeconfig.json
+C:\Users\v.baz\RiderProjects\Cours Optimisation Algo\Cours Optimisation Algo\bin\Debug\net9.0\Cours Optimisation Algo.dll
+C:\Users\v.baz\RiderProjects\Cours Optimisation Algo\Cours Optimisation Algo\bin\Debug\net9.0\Cours Optimisation Algo.pdb
+C:\Users\v.baz\RiderProjects\Cours Optimisation Algo\Cours Optimisation Algo\obj\Debug\net9.0\Cours Optimisation Algo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\v.baz\RiderProjects\Cours Optimisation Algo\Cours Optimisation Algo\obj\Debug\net9.0\Cours Optimisation Algo.AssemblyInfoInputs.cache
+C:\Users\v.baz\RiderProjects\Cours Optimisation Algo\Cours Optimisation Algo\obj\Debug\net9.0\Cours Optimisation Algo.AssemblyInfo.cs
+C:\Users\v.baz\RiderProjects\Cours Optimisation Algo\Cours Optimisation Algo\obj\Debug\net9.0\Cours Optimisation Algo.csproj.CoreCompileInputs.cache
+C:\Users\v.baz\RiderProjects\Cours Optimisation Algo\Cours Optimisation Algo\obj\Debug\net9.0\Cours Optimisation Algo.dll
+C:\Users\v.baz\RiderProjects\Cours Optimisation Algo\Cours Optimisation Algo\obj\Debug\net9.0\refint\Cours Optimisation Algo.dll
+C:\Users\v.baz\RiderProjects\Cours Optimisation Algo\Cours Optimisation Algo\obj\Debug\net9.0\Cours Optimisation Algo.pdb
+C:\Users\v.baz\RiderProjects\Cours Optimisation Algo\Cours Optimisation Algo\obj\Debug\net9.0\Cours Optimisation Algo.genruntimeconfig.cache
+C:\Users\v.baz\RiderProjects\Cours Optimisation Algo\Cours Optimisation Algo\obj\Debug\net9.0\ref\Cours Optimisation Algo.dll
