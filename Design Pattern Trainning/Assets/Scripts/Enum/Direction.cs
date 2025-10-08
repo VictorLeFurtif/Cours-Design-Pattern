@@ -1,4 +1,3 @@
-using System.Numerics;
 using Vector2 = UnityEngine.Vector2;
 
 namespace Enum

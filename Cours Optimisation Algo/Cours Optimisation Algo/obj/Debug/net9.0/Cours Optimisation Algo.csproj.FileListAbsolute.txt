@@ -27,3 +27,18 @@ C:\Work\Cours-Design-Pattern\Cours Optimisation Algo\Cours Optimisation Algo\obj
 C:\Work\Cours-Design-Pattern\Cours Optimisation Algo\Cours Optimisation Algo\obj\Debug\net9.0\Cours Optimisation Algo.pdb
 C:\Work\Cours-Design-Pattern\Cours Optimisation Algo\Cours Optimisation Algo\obj\Debug\net9.0\Cours Optimisation Algo.genruntimeconfig.cache
 C:\Work\Cours-Design-Pattern\Cours Optimisation Algo\Cours Optimisation Algo\obj\Debug\net9.0\ref\Cours Optimisation Algo.dll
+C:\Work\Project 2025 2026\Cours-Design-Pattern\Cours Optimisation Algo\Cours Optimisation Algo\bin\Debug\net9.0\Cours Optimisation Algo.exe
+C:\Work\Project 2025 2026\Cours-Design-Pattern\Cours Optimisation Algo\Cours Optimisation Algo\bin\Debug\net9.0\Cours Optimisation Algo.deps.json
+C:\Work\Project 2025 2026\Cours-Design-Pattern\Cours Optimisation Algo\Cours Optimisation Algo\bin\Debug\net9.0\Cours Optimisation Algo.runtimeconfig.json
+C:\Work\Project 2025 2026\Cours-Design-Pattern\Cours Optimisation Algo\Cours Optimisation Algo\bin\Debug\net9.0\Cours Optimisation Algo.dll
+C:\Work\Project 2025 2026\Cours-Design-Pattern\Cours Optimisation Algo\Cours Optimisation Algo\bin\Debug\net9.0\Cours Optimisation Algo.pdb
+C:\Work\Project 2025 2026\Cours-Design-Pattern\Cours Optimisation Algo\Cours Optimisation Algo\obj\Debug\net9.0\Cours Optimisation Algo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Work\Project 2025 2026\Cours-Design-Pattern\Cours Optimisation Algo\Cours Optimisation Algo\obj\Debug\net9.0\Cours Optimisation Algo.AssemblyInfoInputs.cache
+C:\Work\Project 2025 2026\Cours-Design-Pattern\Cours Optimisation Algo\Cours Optimisation Algo\obj\Debug\net9.0\Cours Optimisation Algo.AssemblyInfo.cs
+C:\Work\Project 2025 2026\Cours-Design-Pattern\Cours Optimisation Algo\Cours Optimisation Algo\obj\Debug\net9.0\Cours Optimisation Algo.csproj.CoreCompileInputs.cache
+C:\Work\Project 2025 2026\Cours-Design-Pattern\Cours Optimisation Algo\Cours Optimisation Algo\obj\Debug\net9.0\Cours Optimisation Algo.sourcelink.json
+C:\Work\Project 2025 2026\Cours-Design-Pattern\Cours Optimisation Algo\Cours Optimisation Algo\obj\Debug\net9.0\Cours Optimisation Algo.dll
+C:\Work\Project 2025 2026\Cours-Design-Pattern\Cours Optimisation Algo\Cours Optimisation Algo\obj\Debug\net9.0\refint\Cours Optimisation Algo.dll
+C:\Work\Project 2025 2026\Cours-Design-Pattern\Cours Optimisation Algo\Cours Optimisation Algo\obj\Debug\net9.0\Cours Optimisation Algo.pdb
+C:\Work\Project 2025 2026\Cours-Design-Pattern\Cours Optimisation Algo\Cours Optimisation Algo\obj\Debug\net9.0\Cours Optimisation Algo.genruntimeconfig.cache
+C:\Work\Project 2025 2026\Cours-Design-Pattern\Cours Optimisation Algo\Cours Optimisation Algo\obj\Debug\net9.0\ref\Cours Optimisation Algo.dll

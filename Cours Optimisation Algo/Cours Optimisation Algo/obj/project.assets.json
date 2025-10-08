@@ -8,19 +8,19 @@
     "net9.0": []
   },
   "packageFolders": {
-    "C:\\Users\\PC\\.nuget\\packages\\": {}
+    "C:\\Users\\v.baz\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Work\\Cours-Design-Pattern\\Cours Optimisation Algo\\Cours Optimisation Algo\\Cours Optimisation Algo.csproj",
+      "projectUniqueName": "C:\\Work\\Project 2025 2026\\Cours-Design-Pattern\\Cours Optimisation Algo\\Cours Optimisation Algo\\Cours Optimisation Algo.csproj",
       "projectName": "Cours Optimisation Algo",
-      "projectPath": "C:\\Work\\Cours-Design-Pattern\\Cours Optimisation Algo\\Cours Optimisation Algo\\Cours Optimisation Algo.csproj",
-      "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-      "outputPath": "C:\\Work\\Cours-Design-Pattern\\Cours Optimisation Algo\\Cours Optimisation Algo\\obj\\",
+      "projectPath": "C:\\Work\\Project 2025 2026\\Cours-Design-Pattern\\Cours Optimisation Algo\\Cours Optimisation Algo\\Cours Optimisation Algo.csproj",
+      "packagesPath": "C:\\Users\\v.baz\\.nuget\\packages\\",
+      "outputPath": "C:\\Work\\Project 2025 2026\\Cours-Design-Pattern\\Cours Optimisation Algo\\Cours Optimisation Algo\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\v.baz\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -42,9 +42,9 @@
       "restoreAuditProperties": {
         "enableAudit": "true",
         "auditLevel": "low",
-        "auditMode": "all"
+        "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.100"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net9.0": {
@@ -65,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\v.baz\\.dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

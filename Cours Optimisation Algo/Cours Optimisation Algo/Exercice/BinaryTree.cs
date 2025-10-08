@@ -23,26 +23,26 @@ public class BinaryTree
     
     public void Display()
     {
-        Console.WriteLine("The root is : " + rootNode.value);
+        Console.WriteLine("The root is : " + rootNode.Value);
         DisplayRecursive(rootNode);
     }
 
     private void DisplayRecursive(Node target)
     {
-        if (target.leftReference != null)
+        if (target.LeftReference != null)
         {
-            Console.WriteLine("Enfant de gauche est : " + target.leftReference.value);
-            DisplayRecursive(target.leftReference);
+            Console.WriteLine("Enfant de gauche est : " + target.LeftReference.Value);
+            DisplayRecursive(target.LeftReference);
         }
         else
         {
             Console.WriteLine("Plus d'enfants");
         }
 
-        if (target.rightReference != null)
+        if (target.RightReference != null)
         {
-            Console.WriteLine("Enfant de droite est : " + target.rightReference.value);
-            DisplayRecursive(target.rightReference);
+            Console.WriteLine("Enfant de droite est : " + target.RightReference.Value);
+            DisplayRecursive(target.RightReference);
         }
         else
         {
@@ -50,16 +50,19 @@ public class BinaryTree
         }
     }
 
-    public void Search(string content)
+    public bool Search(string content)
     {
+        bool found = false;
+        
         if (rootNode == null)
         {
             Console.WriteLine("Didnt Found the word : " + content);
-            return;
+            return found;
         }
         
         Node target = new Node(content);
-        rootNode.Search(target);
+        found = rootNode.Search(target);
+        return found;
     }
 
     public void Minimum()

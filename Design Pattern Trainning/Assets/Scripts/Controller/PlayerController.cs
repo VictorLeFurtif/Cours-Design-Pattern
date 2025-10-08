@@ -8,21 +8,7 @@ namespace Controller
     {
 
         [SerializeField] private int movingDistance;
-
-        public static PlayerController instance;
-
-        private void Awake()
-        {
-            if (instance == null)
-            {
-                instance = this;
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-        }
-
+        
 
         public void MovePlayer(Direction _direction)
         {

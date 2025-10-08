@@ -1,99 +1,102 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace Cours_Optimisation_Algo.Exercice;
 
 public class Node
 {
-    public string value;
-    public Node leftReference;
-    public Node rightReference;
+    public string Value;
+    public Node LeftReference;
+    public Node RightReference;
 
     public Node(string _value)
     {
-        value = _value;
-        leftReference = rightReference = null;
+        Value = _value;
+        LeftReference = RightReference = null;
     }
-    
     
     
     public void Add(Node target)
     {
-        if (String.Compare(value,target.value) < 0)
+        if (String.Compare(Value,target.Value) < 0)
         {
-            if (rightReference == null)
+            if (RightReference == null)
             {
-                rightReference = target;
+                RightReference = target;
             }
             else
             {
-                rightReference.Add(target);
+                RightReference.Add(target);
             }
         }
         else
         {
             
-            if (leftReference == null)
+            if (LeftReference == null)
             {
-                leftReference = target;
+                LeftReference = target;
             }
             else
             {
-                leftReference.Add(target);
+                LeftReference.Add(target);
             }
         }
     }
     
     public void Minimum()
     {
-        if (leftReference == null)
+        if (LeftReference == null)
         {
-            Console.WriteLine("The Minimum is : "+ value);
+            Console.WriteLine("The Minimum is : "+ Value);
             return;
         }
-        leftReference.Minimum();
+        LeftReference.Minimum();
     }
     
     public void Maximum()
     {
-        if (rightReference == null)
+        if (RightReference == null)
         {
-            Console.WriteLine("The Maximum is : "+ value);
+            Console.WriteLine("The Maximum is : "+ Value);
             return;
         }
-        rightReference.Maximum();
+        RightReference.Maximum();
     }
     
 
-    public void Search(Node target)
+    public bool Search(Node target)
     {
-        if (String.Compare(value,target.value) == 0) //Found it same value
+        if (String.Compare(Value,target.Value) == 0) 
         {
-            Console.WriteLine("Found the word : " + value);
-            return;
+            Console.WriteLine("Found the word : " + Value);
+            return true;
         }
         
-        if (String.Compare(value,target.value) < 0)
+        else if (String.Compare(Value,target.Value) < 0)
         {
-            if (rightReference == null)
+            if (RightReference == null)
             {
-                Console.WriteLine("Didnt Found the word : " + target.value); 
-                return;
+                Console.WriteLine("Didnt Found the word : " + target.Value); 
+                return false;
             }
             else
             {
-                rightReference.Search(target);
+                RightReference.Search(target);
             }
         }
         else
         {
             
-            if (leftReference == null)
+            if (LeftReference == null)
             {
-                Console.WriteLine("Didnt Found the word : " + target.value); 
-                return;
+                Console.WriteLine("Didnt Found the word : " + target.Value); 
+                return false;
             }
             else
             {
-                leftReference.Search(target);
+                LeftReference.Search(target);
             }
         }
+
+        return false;
     }
 }

@@ -1,6 +1,6 @@
-using Controller;
 using Enum;
 using Interface;
+using Player;
 
 namespace Commands
 {
@@ -8,12 +8,12 @@ namespace Commands
     {
         public void Execute()
         {
-            PlayerController.instance.MovePlayer(Direction.Right);
+            PlayerCore.instance.playerController.MovePlayer(Direction.Right);
         }
 
         public void Undo()
         {
-            PlayerController.instance.MovePlayer(Direction.Left);
+            PlayerCore.instance.playerController.MovePlayer(Direction.Left);
         }
     }
 }
