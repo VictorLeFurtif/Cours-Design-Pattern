@@ -10,9 +10,11 @@ public class MotusGame
     private string wordToGuess;
 
     private string answer;
+
+    private bool won = false;
     
     private List<string> listOfWordAvalaible = new List<string>(){
-        "abcadd",
+        "apple",
     };
 
     enum LetterState
@@ -35,9 +37,13 @@ public class MotusGame
         DisplayWordInit();
         InitLetterState();
         
-        
-        TryToGuess();
-        CheckIfWordCorrect(); 
+        while (true)
+        {
+            TryToGuess();
+            won = CheckIfWordCorrect();
+            if (won)break;
+        }
+         
     }
 
     public MotusGame()
@@ -91,14 +97,11 @@ public class MotusGame
             {
                 break;
             }
-            else
-            {
-                Console.WriteLine($"Your word : {answer} dont have enough letter in it try again");
-            }
+            Console.WriteLine($"Your word : {answer} dont have enough letter in it try again");
         }
     }
 
-    private void CheckIfWordCorrect() //We will display the answer Here I suppose then give the opportunity to try again
+    private bool CheckIfWordCorrect() //We will display the answer Here I suppose then give the opportunity to try again
     {
         InitLetterState();
         List<char> letterInTheWord = new List<char>();
@@ -142,8 +145,12 @@ public class MotusGame
         
         if (wordToGuess == answer) // won
         {
-            return;
+            Console.WriteLine();
+            Console.WriteLine($"Your word : {answer} is correct");
+            return true;
         }
+        Console.WriteLine(" ");
+        return false;
     }
 
     private void Display(List<LetterState> _list)
@@ -167,7 +174,7 @@ public class MotusGame
             Console.Write(answer[i]); //ici
         }
 
-        Console.ForegroundColor = ConsoleColor.Black;
+        Console.ForegroundColor = ConsoleColor.White;
     }
     
 }
