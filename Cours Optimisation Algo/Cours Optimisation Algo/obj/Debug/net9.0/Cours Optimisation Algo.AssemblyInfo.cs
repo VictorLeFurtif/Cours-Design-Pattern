@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Cours Optimisation Algo")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4d757a40edc782ba6f7eb95a9c24d15ee757b5e8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6b5c69b1ec14ac337653c2cd07c9b60504d45abc")]
 [assembly: System.Reflection.AssemblyProductAttribute("Cours Optimisation Algo")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Cours Optimisation Algo")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Work\\Project 2025 2026\\Cours-Design-Pattern\\Cours Optimisation Algo\\Cours Optimisation Algo\\Cours Optimisation Algo.csproj",
+      "projectUniqueName": "C:\\Work\\Project 2025 2026\\DesignPattern_OptiAlgo_PathFinding\\Cours Optimisation Algo\\Cours Optimisation Algo\\Cours Optimisation Algo.csproj",
       "projectName": "Cours Optimisation Algo",
-      "projectPath": "C:\\Work\\Project 2025 2026\\Cours-Design-Pattern\\Cours Optimisation Algo\\Cours Optimisation Algo\\Cours Optimisation Algo.csproj",
+      "projectPath": "C:\\Work\\Project 2025 2026\\DesignPattern_OptiAlgo_PathFinding\\Cours Optimisation Algo\\Cours Optimisation Algo\\Cours Optimisation Algo.csproj",
       "packagesPath": "C:\\Users\\v.baz\\.nuget\\packages\\",
-      "outputPath": "C:\\Work\\Project 2025 2026\\Cours-Design-Pattern\\Cours Optimisation Algo\\Cours Optimisation Algo\\obj\\",
+      "outputPath": "C:\\Work\\Project 2025 2026\\DesignPattern_OptiAlgo_PathFinding\\Cours Optimisation Algo\\Cours Optimisation Algo\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\v.baz\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -13,7 +13,6 @@ public class MotusGame
     
     private List<string> listOfWordAvalaible = new List<string>(){
         "abcadd",
-        
     };
 
     enum LetterState
@@ -69,6 +68,8 @@ public class MotusGame
 
     private void InitLetterState() //we will Display in the future thanks to that
     {
+        letterStates.Clear();
+        
         for (int i = 0; i < wordToGuess.Length; i++)
         {
             letterStates.Add(LetterState.Bad);
@@ -81,8 +82,20 @@ public class MotusGame
 
     private void TryToGuess()
     {
-        Console.Write($"Try to guess the word : {wordToGuess[0]}");
-        answer = $"{wordToGuess[0]}{Console.ReadLine()}" ; //Here I order the player to always have the same first letter
+        while (true)
+        {
+            Console.Write($"Try to guess the word : {wordToGuess[0]}");
+            answer = $"{wordToGuess[0]}{Console.ReadLine()}" ; //Here I order the player to always have the same first letter
+
+            if (answer.Length == wordToGuess.Length)
+            {
+                break;
+            }
+            else
+            {
+                Console.WriteLine($"Your word : {answer} dont have enough letter in it try again");
+            }
+        }
     }
 
     private void CheckIfWordCorrect() //We will display the answer Here I suppose then give the opportunity to try again
@@ -124,15 +137,12 @@ public class MotusGame
                 }
             }
         }
+        
         Display(letterStates);  //then we display
         
         if (wordToGuess == answer) // won
         {
             return;
-        }
-        else
-        {
-            
         }
     }
 
@@ -143,21 +153,21 @@ public class MotusGame
             switch (_list[i])
             {
                 case LetterState.Bad:
-                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.Red;
                     break;
                 case LetterState.Mid:
-                    Console.BackgroundColor = ConsoleColor.Yellow;
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     break;
                 case LetterState.Good:
-                    Console.BackgroundColor = ConsoleColor.Green;
+                    Console.ForegroundColor = ConsoleColor.Green;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-            Console.Write(answer[i]);
+            Console.Write(answer[i]); //ici
         }
 
-        Console.BackgroundColor = ConsoleColor.Black;
+        Console.ForegroundColor = ConsoleColor.Black;
     }
     
 }

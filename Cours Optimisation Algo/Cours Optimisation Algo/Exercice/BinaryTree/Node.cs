@@ -1,6 +1,4 @@
-using System.Diagnostics.CodeAnalysis;
-
-namespace Cours_Optimisation_Algo.Exercice;
+namespace Cours_Optimisation_Algo.Exercice.BinaryTree;
 
 public class Node
 {
