@@ -1,3 +1,6 @@
+using System.Text;
+using Cours_Optimisation_Algo.Exercice.BinaryTree;
+
 namespace Cours_Optimisation_Algo.Exercice.Motus;
 
 
@@ -59,8 +62,9 @@ public class MotusGame
 
     private void ChooseRandomWord()
     {
-        Random random = new Random();
-        wordToGuess = listOfWordAvalaible[random.Next(0, listOfWordAvalaible.Count)];
+        wordToGuess = SelectWordFromTxt(
+            "C:\\Work\\Project 2025 2026\\DesignPattern_OptiAlgo_PathFinding\\Cours Optimisation Algo" +
+            "\\Cours Optimisation Algo\\Ressources\\liste.de.mots.francais.frgut.txt");
     }
     
     private void DisplayWordInit()
@@ -205,13 +209,44 @@ public class MotusGame
     private void InitTree()
     {
         tree = new BinaryTree.BinaryTree();
-        tree = tree.ExtractWord("C:\\Work\\Project 2025 2026\\DesignPattern_OptiAlgo_PathFinding\\Cours Optimisation Algo\\Cours Optimisation Algo\\Ressources\\liste.de.mots.francais.frgut.txt");
+        tree = tree.ExtractWord("C:\\Work\\Project 2025 2026\\DesignPattern_OptiAlgo_PathFinding\\Cours Optimisation Algo" +
+                                "\\Cours Optimisation Algo\\Ressources\\liste.de.mots.francais.frgut.txt");
     }
 
 
     private bool WordEnterValid(string target)
     {
         return tree.Search(target);
+    }
+    
+    public string SelectWordFromTxt(string path)
+    {
+        string cheminFichier = path;
+        
+        string[] motsBruts = File.ReadAllLines(cheminFichier);
+        
+        string[] mots = new string[motsBruts.Length];
+        
+        for (int i = 0; i < mots.Length; i++)
+        {
+            string mot = motsBruts[i].Normalize(NormalizationForm.FormD);
+            
+            string motClean = "";
+            
+            foreach (char letter in mot)
+            {
+                if (letter >= 'a' && letter <= 'z')
+                {
+                    motClean += letter;
+                }
+            }
+            
+            mots[i] = motClean;
+        }
+        
+        Random.Shared.Shuffle(mots);
+
+        return mots[0];
     }
     #endregion
 }
