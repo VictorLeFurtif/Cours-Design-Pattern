@@ -1,0 +1,15 @@
+C:\Work\Project 2025 2026\PathFindingWork\PathFindingDijkstra\PathFindingDijkstra\obj\Debug\net9.0\PathFindingDijkstra.GeneratedMSBuildEditorConfig.editorconfig
+C:\Work\Project 2025 2026\PathFindingWork\PathFindingDijkstra\PathFindingDijkstra\obj\Debug\net9.0\PathFindingDijkstra.AssemblyInfoInputs.cache
+C:\Work\Project 2025 2026\PathFindingWork\PathFindingDijkstra\PathFindingDijkstra\obj\Debug\net9.0\PathFindingDijkstra.AssemblyInfo.cs
+C:\Work\Project 2025 2026\PathFindingWork\PathFindingDijkstra\PathFindingDijkstra\obj\Debug\net9.0\PathFindingDijkstra.csproj.CoreCompileInputs.cache
+C:\Work\Project 2025 2026\PathFindingWork\PathFindingDijkstra\PathFindingDijkstra\obj\Debug\net9.0\PathFindingDijkstra.sourcelink.json
+C:\Work\Project 2025 2026\PathFindingWork\PathFindingDijkstra\PathFindingDijkstra\bin\Debug\net9.0\PathFindingDijkstra.exe
+C:\Work\Project 2025 2026\PathFindingWork\PathFindingDijkstra\PathFindingDijkstra\bin\Debug\net9.0\PathFindingDijkstra.deps.json
+C:\Work\Project 2025 2026\PathFindingWork\PathFindingDijkstra\PathFindingDijkstra\bin\Debug\net9.0\PathFindingDijkstra.runtimeconfig.json
+C:\Work\Project 2025 2026\PathFindingWork\PathFindingDijkstra\PathFindingDijkstra\bin\Debug\net9.0\PathFindingDijkstra.dll
+C:\Work\Project 2025 2026\PathFindingWork\PathFindingDijkstra\PathFindingDijkstra\bin\Debug\net9.0\PathFindingDijkstra.pdb
+C:\Work\Project 2025 2026\PathFindingWork\PathFindingDijkstra\PathFindingDijkstra\obj\Debug\net9.0\PathFindingDijkstra.dll
+C:\Work\Project 2025 2026\PathFindingWork\PathFindingDijkstra\PathFindingDijkstra\obj\Debug\net9.0\refint\PathFindingDijkstra.dll
+C:\Work\Project 2025 2026\PathFindingWork\PathFindingDijkstra\PathFindingDijkstra\obj\Debug\net9.0\PathFindingDijkstra.pdb
+C:\Work\Project 2025 2026\PathFindingWork\PathFindingDijkstra\PathFindingDijkstra\obj\Debug\net9.0\PathFindingDijkstra.genruntimeconfig.cache
+C:\Work\Project 2025 2026\PathFindingWork\PathFindingDijkstra\PathFindingDijkstra\obj\Debug\net9.0\ref\PathFindingDijkstra.dll
