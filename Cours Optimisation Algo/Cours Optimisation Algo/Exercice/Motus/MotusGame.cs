@@ -62,9 +62,7 @@ public class MotusGame
 
     private void ChooseRandomWord()
     {
-        wordToGuess = SelectWordFromTxt(
-            "C:\\Work\\Project 2025 2026\\DesignPattern_OptiAlgo_PathFinding\\Cours Optimisation Algo" +
-            "\\Cours Optimisation Algo\\Ressources\\liste.de.mots.francais.frgut.txt");
+        wordToGuess = SelectWordFromTxt("..\\..\\..\\Ressources\\liste.de.mots.francais.frgut.txt");
     }
     
     private void DisplayWordInit()
@@ -209,8 +207,7 @@ public class MotusGame
     private void InitTree()
     {
         tree = new BinaryTree.BinaryTree();
-        tree = tree.ExtractWord("C:\\Work\\Project 2025 2026\\DesignPattern_OptiAlgo_PathFinding\\Cours Optimisation Algo" +
-                                "\\Cours Optimisation Algo\\Ressources\\liste.de.mots.francais.frgut.txt");
+        tree = tree.ExtractWord("..\\..\\..\\Ressources\\liste.de.mots.francais.frgut.txt");
     }
 
 
