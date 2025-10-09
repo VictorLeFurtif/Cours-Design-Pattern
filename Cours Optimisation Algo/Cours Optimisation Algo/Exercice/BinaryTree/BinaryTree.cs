@@ -1,5 +1,6 @@
 namespace Cours_Optimisation_Algo.Exercice.BinaryTree;
-
+using System.IO;
+using System.Text;
 public class BinaryTree
 {
     private Node rootNode;
@@ -56,14 +57,12 @@ public class BinaryTree
         
         if (rootNode == null)
         {
-            Console.WriteLine("Didnt Found the word : " + content);
             return found;
         }
         
         Node target = new Node(content);
         
         found = rootNode.Search(target);
-        
         return found;
     }
 
@@ -87,5 +86,43 @@ public class BinaryTree
         }
         
         rootNode.Maximum();
+    }
+    
+    public BinaryTree ExtractWord(string path)
+    {
+        string cheminFichier = path;
+        
+        Console.WriteLine("début du chargement du fichier et initialisation de l'arbre ...");
+        
+        string[] motsBruts = File.ReadAllLines(cheminFichier);
+        
+        string[] mots = new string[motsBruts.Length];
+        
+        for (int i = 0; i < mots.Length; i++)
+        {
+            string mot = motsBruts[i].Normalize(NormalizationForm.FormD);
+            
+            string motClean = "";
+            
+            foreach (char letter in mot)
+            {
+                if (letter >= 'a' && letter <= 'z')
+                {
+                    motClean += letter;
+                }
+            }
+            
+            mots[i] = motClean;
+        }
+        
+        Random.Shared.Shuffle(mots);
+        BinaryTree tree = new BinaryTree();
+        
+        foreach (var word in mots)
+        {
+            tree.Add(new Node(word));
+        }
+
+        return tree;
     }
 }

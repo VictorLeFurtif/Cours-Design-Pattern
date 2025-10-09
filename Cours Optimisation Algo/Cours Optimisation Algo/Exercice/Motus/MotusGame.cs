@@ -1,6 +1,5 @@
 namespace Cours_Optimisation_Algo.Exercice.Motus;
-using System.IO;
-using System.Text;
+
 
 public class MotusGame
 {
@@ -12,6 +11,8 @@ public class MotusGame
     private string answer;
 
     private bool won = false;
+
+    private BinaryTree.BinaryTree tree;
     
     private List<string> listOfWordAvalaible = new List<string>(){
         "apple",
@@ -33,7 +34,8 @@ public class MotusGame
 
     public void GameLoop()
     {
-        ChooseRandomWord(wordToGuess);
+        InitTree();
+        ChooseRandomWord();
         DisplayWordInit();
         InitLetterState();
         
@@ -55,7 +57,7 @@ public class MotusGame
 
     #region Initialisation
 
-    private void ChooseRandomWord(string target)
+    private void ChooseRandomWord()
     {
         Random random = new Random();
         wordToGuess = listOfWordAvalaible[random.Next(0, listOfWordAvalaible.Count)];
@@ -86,6 +88,8 @@ public class MotusGame
 
     #endregion
 
+    #region Methods Link To Motus
+
     private void TryToGuess()
     {
         while (true)
@@ -93,11 +97,26 @@ public class MotusGame
             Console.Write($"Try to guess the word : {wordToGuess[0]}");
             answer = $"{wordToGuess[0]}{Console.ReadLine()}" ; //Here I order the player to always have the same first letter
 
-            if (answer.Length == wordToGuess.Length)
+            if (answer.Length > wordToGuess.Length)
             {
-                break;
+                Console.WriteLine($"Your word : {answer} have to much letter in it try again");
+                continue;
             }
-            Console.WriteLine($"Your word : {answer} dont have enough letter in it try again");
+            
+            if (answer.Length < wordToGuess.Length)
+            {
+                Console.WriteLine($"Your word : {answer} dont have enough letter in it try again");
+                continue;
+            }
+            
+            if (!WordEnterValid(answer))
+            {
+                Console.WriteLine($"Your word : {answer} dont exist try again");
+                continue;
+            }
+            
+            break;
+            
         }
     }
 
@@ -171,10 +190,28 @@ public class MotusGame
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-            Console.Write(answer[i]); //ici
+            Console.Write(answer[i]);
         }
 
         Console.ForegroundColor = ConsoleColor.White;
     }
+
+    #endregion
+
     
+
+    #region Methods Link To binary tree
+
+    private void InitTree()
+    {
+        tree = new BinaryTree.BinaryTree();
+        tree = tree.ExtractWord("C:\\Work\\Project 2025 2026\\DesignPattern_OptiAlgo_PathFinding\\Cours Optimisation Algo\\Cours Optimisation Algo\\Ressources\\liste.de.mots.francais.frgut.txt");
+    }
+
+
+    private bool WordEnterValid(string target)
+    {
+        return tree.Search(target);
+    }
+    #endregion
 }

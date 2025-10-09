@@ -65,7 +65,6 @@ public class Node
     {
         if (String.Compare(Value,target.Value) == 0) 
         {
-            Console.WriteLine("Found the word : " + Value);
             return true;
         }
         
@@ -73,12 +72,11 @@ public class Node
         {
             if (RightReference == null)
             {
-                Console.WriteLine("Didnt Found the word : " + target.Value); 
                 return false;
             }
             else
             {
-                RightReference.Search(target);
+                return RightReference.Search(target);
             }
         }
         else
@@ -86,15 +84,12 @@ public class Node
             
             if (LeftReference == null)
             {
-                Console.WriteLine("Didnt Found the word : " + target.Value); 
                 return false;
             }
             else
             {
-                LeftReference.Search(target);
+                return LeftReference.Search(target);
             }
         }
-
-        return false;
     }
 }
