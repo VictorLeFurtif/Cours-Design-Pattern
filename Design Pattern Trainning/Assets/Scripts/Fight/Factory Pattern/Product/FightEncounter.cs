@@ -34,7 +34,8 @@ namespace Fight.Factory_Pattern.Product
             
             Debug.Log($"Vous ordonnez {player.pokemonPlayer.Name} d'attaquer : damage({player.pokemonPlayer.Damage}) ");
             PokemonNmi.Life -= player.pokemonPlayer.Damage;
-            EventManager.OnRoundEnd.Invoke();
+            CheckForDead();
+            EventManager.OnRoundEnd?.Invoke();
         }
 
         public void Heal()
@@ -43,14 +44,10 @@ namespace Fight.Factory_Pattern.Product
             
             Debug.Log($"Vous vous soignez de 5 ");
             player.pokemonPlayer.Life += 5;
-            EventManager.OnRoundEnd.Invoke();
+            EventManager.OnRoundEnd?.Invoke();
         }
         
-        public void End()
-        {
-            EventManager.OnFightEnd.Invoke();
-            Destroy(gameObject);
-        }
+        
         
 
         #endregion
@@ -63,7 +60,7 @@ namespace Fight.Factory_Pattern.Product
             
             ActionsList = new List<string>() { "Attack", "Heal" };
 
-            PokemonNmi = new Pokemon("ToTo", 100,7);
+            PokemonNmi = new Pokemon("ToTo", 20,7);
 
             TrainerNmi = new Trainer("Victor");
             
@@ -78,7 +75,6 @@ namespace Fight.Factory_Pattern.Product
         {
             encounterGeneratorFight = target;
         }
-        
         
         
         #endregion

@@ -32,6 +32,7 @@ namespace Fight.Factory_Pattern.Product
             
             Debug.Log($"Vous ordonnez {player.pokemonPlayer.Name} d'attaquer : damage({player.pokemonPlayer.Damage}) ");
             PokemonNmi.Life -= player.pokemonPlayer.Damage;
+            CheckForDead();
             EventManager.OnRoundEnd?.Invoke();
         }
 
@@ -63,12 +64,6 @@ namespace Fight.Factory_Pattern.Product
 
         
 
-        public void End()
-        {
-            EventManager.OnFightEnd.Invoke();
-            Destroy(gameObject);
-        }
-
         #endregion
 
         #region Unity Methods
@@ -79,7 +74,7 @@ namespace Fight.Factory_Pattern.Product
             
             ActionsList = new List<string>() { "Attack", "Heal", "Flee", "Catch" };
 
-            PokemonNmi = new Pokemon("ToTo", 100,5);
+            PokemonNmi = new Pokemon("ToTo", 20,5);
             
         }
 

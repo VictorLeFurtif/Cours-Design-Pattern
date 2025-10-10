@@ -31,12 +31,10 @@ namespace Fight.Factory_Pattern.Product
                     _currentFightState = FightState.Player;
                     break;
             }
-
-            Debug.Log($"New state = {_currentFightState}");
             
             if (_currentFightState == FightState.Ai)
             {
-                EventManager.OnAiRoundStart.Invoke();
+                EventManager.OnAiRoundStart?.Invoke();
             }
         }
         
@@ -45,15 +43,38 @@ namespace Fight.Factory_Pattern.Product
             return _currentFightState == FightState.Player;
         }
         
+        public void End()
+        {
+            EventManager.OnFightEnd?.Invoke();
+            Destroy(gameObject);
+        }
+        
         protected virtual void EnemyAttack()
         {
             player.pokemonPlayer.Life -= PokemonNmi.Damage;
-            EventManager.OnRoundEnd.Invoke();
+            CheckForDead();
+            EventManager.OnRoundEnd?.Invoke();
         }
+        
 
         protected virtual void Awake()
         {
             player = PlayerCore.instance;
+        }
+
+        protected void CheckForDead()
+        {
+            CheckForSpecificDead("You Won",PokemonNmi.Life);
+            CheckForSpecificDead("You Loose",player.pokemonPlayer.Life);
+        }
+
+        private void CheckForSpecificDead(string answer, int life)
+        {
+            if (life <= 0)
+            {
+                Debug.Log(answer);
+                End();
+            }
         }
 
         #region Observer

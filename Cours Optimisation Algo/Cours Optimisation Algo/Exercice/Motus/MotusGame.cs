@@ -1,5 +1,4 @@
 using System.Text;
-using Cours_Optimisation_Algo.Exercice.BinaryTree;
 
 namespace Cours_Optimisation_Algo.Exercice.Motus;
 
@@ -91,7 +90,7 @@ public class MotusGame
     #endregion
 
     #region Methods Link To Motus
-
+    
     private void TryToGuess()
     {
         while (true)
