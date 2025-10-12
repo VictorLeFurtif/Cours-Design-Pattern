@@ -21,17 +21,21 @@ public class MyHashSet
     
     private int count = 0;
 
-    //Method that will get us the index in our grid 
+    //Method that will get us the index in our grid FNV-1a a bit difficult
     private int Hash(string word)
     {
-        int index = 0;
-        
-        foreach (char letter in word)
+        const uint FNV_OFFSET_BASIS = 2166136261;
+        const uint FNV_PRIME = 16777619; //golden number I think
+    
+        uint hash = FNV_OFFSET_BASIS;
+    
+        foreach (char c in word)
         {
-            index = ((index * 31) + letter) % grid.Length;
+            hash ^= c; //xor here
+            hash *= FNV_PRIME; //scatter here
         }
-        
-        return index;
+    
+        return (int)(hash % (uint)grid.Length);
     }
 
 
