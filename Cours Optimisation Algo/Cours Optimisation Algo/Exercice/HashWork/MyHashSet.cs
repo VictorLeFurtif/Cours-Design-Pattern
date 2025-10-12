@@ -18,6 +18,8 @@ public class MyHashSet
     //tuple to stock and the word and the future index in case collision
     private (string? word, int indexCollision)[] grid = 
         new (string? word, int indexCollision)[59];
+    
+    private int count = 0;
 
     //Method that will get us the index in our grid 
     private int Hash(string word)
@@ -26,7 +28,7 @@ public class MyHashSet
         
         foreach (char letter in word)
         {
-            index = ((index * 31) + letter) % (grid.Length - 1);
+            index = ((index * 31) + letter) % grid.Length;
         }
         
         return index;
@@ -35,14 +37,23 @@ public class MyHashSet
 
     private void SearchForFuturePlacement(int index, int i, string word)
     {
+        int attempts = 0;
+        
         while (grid[i].word != null)
         {
-            i = (i + 1) % (grid.Length - 1);
-
+            if (attempts >= grid.Length)
+            {
+                throw new InvalidOperationException("HashSet is full! Cannot add more elements.");
+            }
+            
+            i = (i + 1) % (grid.Length);
+            attempts++;
+            
             if (grid[i].word == null)
             {
                 grid[i].word = word;
                 grid[index].indexCollision = i;
+                count++;
                 break;
             }
         }
@@ -50,38 +61,44 @@ public class MyHashSet
     
     
     //use hash to get and index and then check if index Collision is = -1 or stock it under when there is place
-    private void Add(string word)
+    public void Add(string word)
     {
+        if (count >= grid.Length)
+        {
+            throw new InvalidOperationException("HashSet is full! Cannot add more elements.");
+        }   
+        
+        if (Contains(word)) return;
+        
         int index = Hash(word);
 
         if (grid[index].word == null) //so empty
         {
             grid[index].word = word;
+            count++;
+            return;
         }
         
+        if (grid[index].indexCollision == -1) 
+        {
+            int i = index;
+            SearchForFuturePlacement(index,i,word);
+        }
         else 
         {
-            if (grid[index].indexCollision == -1) 
-            {
-                int i = index;
-                SearchForFuturePlacement(index,i,word);
-            }
-            else 
-            {
-                int i = grid[index].indexCollision;
+            int i = grid[index].indexCollision;
                 
-                while (grid[i].indexCollision != -1)
-                {
-                    i = grid[i].indexCollision;
-                }
-
-                index = i;
-                SearchForFuturePlacement(index,i,word);
+            while (grid[i].indexCollision != -1)
+            {
+                i = grid[i].indexCollision;
             }
+
+            index = i;
+            SearchForFuturePlacement(index,i,word);
         }
     }
 
-    private bool IsInHashSet(string word)
+    public bool Contains(string word)
     {
         int index = Hash(word);
 
@@ -95,13 +112,10 @@ public class MyHashSet
             
         while (grid[i].indexCollision != -1)
         {
-            if (grid[i].word == word)
-            {
-                return true;
-            }
-
+            if (grid[i].word == word) return true;
             i = grid[i].indexCollision;
         }
-        return false;
+        
+        return grid[i].word == word;
     }
 }
