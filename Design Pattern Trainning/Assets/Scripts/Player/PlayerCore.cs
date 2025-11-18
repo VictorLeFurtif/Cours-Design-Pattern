@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Adaptateur;
+using Animator;
 using Controller;
 using Fight.Factory_Pattern.Actor;
 using Observer;
@@ -19,6 +20,7 @@ namespace Player
         #region Fields
 
         public PlayerController playerController;
+        
         public PlayerInput playerInput;
 
         public Pokemon pokemonPlayer = new Pokemon("Salamèche",200,10);
@@ -26,6 +28,8 @@ namespace Player
         public List<Pokemon> playerListPokemonCatch;
 
         public Gen2Pokemon pokemonCurrent;
+
+        public AnimationPlayer AnimationPlayer;
 
         #endregion
 

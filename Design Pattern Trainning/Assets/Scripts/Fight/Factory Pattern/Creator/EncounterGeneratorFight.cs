@@ -43,6 +43,10 @@ namespace Fight.Factory_Pattern.Creator
             buttonHeal.GetComponent<Button>().onClick.AddListener(fightEncounter.Heal);
             buttonHeal.transform.GetChild(0).GetComponent<TMP_Text>().text = fightEncounter.ActionsList[1];
             
+            GameObject buttonParalyzed = Instantiate(buttonPrefabs, canvas.transform, true);
+            buttonParalyzed.GetComponent<Button>().onClick.AddListener(fightEncounter.Paralyzed);
+            buttonParalyzed.transform.GetChild(0).GetComponent<TMP_Text>().text = fightEncounter.ActionsList[2];
+            
             EventManager.OnFightStart.Invoke();
         }
     }

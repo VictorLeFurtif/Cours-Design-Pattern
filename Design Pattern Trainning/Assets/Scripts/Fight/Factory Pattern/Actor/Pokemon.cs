@@ -1,3 +1,5 @@
+using StatePattern;
+
 namespace Fight.Factory_Pattern.Actor
 {
     
@@ -8,6 +10,7 @@ namespace Fight.Factory_Pattern.Actor
         public string Name;
         public int Life;
         public int Damage;
+        public AbstractStatePokemon currentStatePokemon;
 
         #endregion
 
@@ -18,6 +21,7 @@ namespace Fight.Factory_Pattern.Actor
             Life = _life;
             Name = _name;
             Damage = _damage;
+            currentStatePokemon = new NormalState();
         }
 
         #endregion

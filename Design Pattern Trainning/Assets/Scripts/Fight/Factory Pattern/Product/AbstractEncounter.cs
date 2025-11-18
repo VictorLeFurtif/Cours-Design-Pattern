@@ -19,7 +19,6 @@ namespace Fight.Factory_Pattern.Product
         
         protected PlayerCore player;
         
-        //[CallerMemberName] string _name = null! Debug.Log(_name);
         private void ChangeStateTurn()
         {
             switch (_currentFightState)

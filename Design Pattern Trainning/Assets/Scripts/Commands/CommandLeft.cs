@@ -9,11 +9,13 @@ namespace Commands
         public void Execute()
         {
             PlayerCore.instance.playerController.MovePlayer(Direction.Left);
+            PlayerCore.instance.AnimationPlayer.UpdatePlayerSprite(Direction.Left);
         }
 
         public void Undo()
         {
             PlayerCore.instance.playerController.MovePlayer(Direction.Right);
+            PlayerCore.instance.AnimationPlayer.UpdatePlayerSprite(Direction.Right);
         }
     }
 }
