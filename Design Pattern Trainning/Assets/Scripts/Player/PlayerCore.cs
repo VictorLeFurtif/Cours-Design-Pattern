@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Adaptateur;
 using Controller;
 using Fight.Factory_Pattern.Actor;
 using Observer;
@@ -23,6 +24,8 @@ namespace Player
         public Pokemon pokemonPlayer = new Pokemon("Salamèche",200,10);
 
         public List<Pokemon> playerListPokemonCatch;
+
+        public Gen2Pokemon pokemonCurrent;
 
         #endregion
 

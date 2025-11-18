@@ -1,5 +1,6 @@
 namespace Fight.Factory_Pattern.Actor
 {
+    
     public class Pokemon
     {
         #region Fields
