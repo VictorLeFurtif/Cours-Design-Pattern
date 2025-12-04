@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VO2PCQId6sc=",
+  "dgSpecHash": "7mlAu9I4qyA=",
   "success": true,
-  "projectFilePath": "C:\\Work\\Project 2025 2026\\PathFindingWork\\PathFindingDijkstra\\PathFindingDijkstra\\PathFindingDijkstra.csproj",
+  "projectFilePath": "C:\\Work\\Project 2025 2026\\DesignPattern_OptiAlgo_PathFinding\\PathFinding\\PathFindingDijkstra\\PathFindingDijkstra\\PathFindingDijkstra.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
