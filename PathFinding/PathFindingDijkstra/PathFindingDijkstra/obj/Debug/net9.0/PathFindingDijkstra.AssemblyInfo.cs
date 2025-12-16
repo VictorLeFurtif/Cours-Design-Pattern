@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PathFindingDijkstra")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7e0261230c002c5ef149e5d4a6ff38faf6b8b286")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+079948717397334dcc8e7b36b6eedb2d0496e886")]
 [assembly: System.Reflection.AssemblyProductAttribute("PathFindingDijkstra")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PathFindingDijkstra")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
