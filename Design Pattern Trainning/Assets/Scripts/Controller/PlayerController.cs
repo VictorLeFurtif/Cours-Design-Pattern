@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Enum;
 using UnityEngine;
 
@@ -6,29 +7,50 @@ namespace Controller
 {
     public class PlayerController : MonoBehaviour
     {
+        [SerializeField] private float movingDistance = 1f;
+        [SerializeField] private float moveDuration = 0.15f;
 
-        [SerializeField] private int movingDistance;
-        
+        private bool isMoving;
 
-        public void MovePlayer(Direction _direction)
+        public void MovePlayer(Direction direction)
         {
-            switch (_direction)
+            if (isMoving)
+                return;
+
+            Vector2 dir = direction switch
             {
-                case Direction.Front:
-                    transform.position = new Vector2(transform.position.x, transform.position.y + movingDistance); 
-                    break;
-                case Direction.Back:
-                    transform.position = new Vector2(transform.position.x, transform.position.y - movingDistance);
-                    break;
-                case Direction.Left:
-                    transform.position = new Vector2(transform.position.x - movingDistance, transform.position.y);
-                    break;
-                case Direction.Right:
-                    transform.position = new Vector2(transform.position.x + movingDistance, transform.position.y); 
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(_direction), _direction, null);
+                Direction.Front => Vector2.up,
+                Direction.Back  => Vector2.down,
+                Direction.Left  => Vector2.left,
+                Direction.Right => Vector2.right,
+                _ => Vector2.zero
+            };
+
+            if (dir == Vector2.zero)
+                return;
+
+            Vector2 startPos = transform.position;
+            Vector2 targetPos = startPos + dir * movingDistance;
+
+            StartCoroutine(MoveRoutine(startPos, targetPos));
+        }
+
+        private IEnumerator MoveRoutine(Vector2 start, Vector2 target)
+        {
+            isMoving = true;
+            float elapsed = 0f;
+
+            while (elapsed < moveDuration)
+            {
+                elapsed += Time.deltaTime;
+                float t = elapsed / moveDuration;
+
+                transform.position = Vector2.Lerp(start, target, t);
+                yield return null;
             }
+
+            transform.position = target;
+            isMoving = false;
         }
     }
 }
