@@ -31,7 +31,9 @@ namespace Fight.Factory_Pattern.Creator
             canvasScaler.referenceResolution = new Vector2(1920, 1080);
             canvas.renderMode = RenderMode.ScreenSpaceOverlay;
             verticalLayout.childAlignment = TextAnchor.LowerRight;
-            verticalLayout.spacing = 5;
+            verticalLayout.spacing = 30;
+            verticalLayout.padding.right = 30;
+            verticalLayout.padding.bottom = 30;
             verticalLayout.childControlHeight = false;
             verticalLayout.childControlWidth = false;
             verticalLayout.childForceExpandHeight = false;
