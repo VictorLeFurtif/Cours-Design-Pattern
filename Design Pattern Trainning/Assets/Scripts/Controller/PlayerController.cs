@@ -10,7 +10,7 @@ namespace Controller
         [SerializeField] private float movingDistance = 1f;
         [SerializeField] private float moveDuration = 0.15f;
 
-        private bool isMoving;
+        public bool isMoving;
 
         public void MovePlayer(Direction direction)
         {

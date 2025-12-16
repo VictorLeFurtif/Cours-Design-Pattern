@@ -1207,6 +1207,7 @@ GameObject:
   - component: {fileID: 235842205}
   - component: {fileID: 235842206}
   - component: {fileID: 235842207}
+  - component: {fileID: 235842208}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1274,7 +1275,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Controller.PlayerController
   movingDistance: 1
-  moveDuration: 0.15
+  moveDuration: 0.3
+  isMoving: 0
 --- !u!114 &235842204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1386,6 +1388,22 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &235842208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235842199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1164b47068015484fa1e3e64b03b4b24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Pool.PlayerFootstepParticles
+  particlePrefab: {fileID: 2963254855612380271, guid: a579454693442554991d6e68e1ebef04, type: 3}
+  poolSize: 5
+  spawnInterval: 0.15
+  pc: {fileID: 235842203}
 --- !u!1 &266570090
 GameObject:
   m_ObjectHideFlags: 0
@@ -1943,7 +1961,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.495, y: -7.504, z: 0}
+  m_LocalPosition: {x: 11.495, y: -7.504, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
