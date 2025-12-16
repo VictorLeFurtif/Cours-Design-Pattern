@@ -27,7 +27,8 @@ namespace Player
 
         public List<Pokemon> playerListPokemonCatch;
 
-        public Gen2Pokemon pokemonCurrent;
+        public Gen2Pokemon pokemonCurrentGen2;
+        public Gen1Pokemon pokemonCurrentGen1;
 
         public AnimationPlayer AnimationPlayer;
 
