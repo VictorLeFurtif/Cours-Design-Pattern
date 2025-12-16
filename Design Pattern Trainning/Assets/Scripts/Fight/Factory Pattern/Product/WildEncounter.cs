@@ -6,6 +6,7 @@ using Fight.Factory_Pattern.Interface;
 using Observer;
 using Player;
 using StatePattern;
+using UI;
 using UnityEngine;
 
 namespace Fight.Factory_Pattern.Product
@@ -32,13 +33,12 @@ namespace Fight.Factory_Pattern.Product
                 return;
             }
             
-            Debug.Log($"{PokemonNmi.Name} attaque : damage({PokemonNmi.Damage})");
-            
+            LogEncounter.Instance.AddMessage($"{PokemonNmi.Name} attaque : damage({PokemonNmi.Damage})");
             
             if ( Random.Range(0, 6) >= 5)
             {
                 player.pokemonPlayer.currentStatePokemon = new BleedingState();
-                Debug.Log($"Votre souffrez de saignement ");
+                LogEncounter.Instance.AddMessage($"Votre souffrez de saignement ");
             }
             
             base.EnemyAttack();
@@ -56,13 +56,12 @@ namespace Fight.Factory_Pattern.Product
                 EventManager.OnRoundEnd?.Invoke();
                 return;
             }
-            
-            Debug.Log($"Vous ordonnez {player.pokemonPlayer.Name} d'attaquer : damage({player.pokemonPlayer.Damage}) ");
+            LogEncounter.Instance.AddMessage($"Vous ordonnez {player.pokemonPlayer.Name} d'attaquer : damage({player.pokemonPlayer.Damage}) ");
             
             if ( Random.Range(0, 6) >= 5)
             {
                 PokemonNmi.currentStatePokemon = new BleedingState();
-                Debug.Log($"Le pokemon ennemi souffre de saignement ");
+                LogEncounter.Instance.AddMessage($"Le pokemon ennemi souffre de saignement ");
             }
             
             PokemonNmi.Life -= player.pokemonPlayer.Damage;
@@ -76,12 +75,12 @@ namespace Fight.Factory_Pattern.Product
             
             if (player.pokemonPlayer.currentStatePokemon.TakeDamage())
             {
-                Debug.Log($"Vous vous soignez de tout sort ");
+                LogEncounter.Instance.AddMessage($"Vous vous soignez de tout sort ");
                 player.pokemonPlayer.currentStatePokemon = new NormalState();
             }
             else
             {
-                Debug.Log($"Vous vous soignez de 5 ");
+                LogEncounter.Instance.AddMessage($"Vous vous soignez de 5 ");
                 player.pokemonPlayer.Life += 5;
             }
             
@@ -95,13 +94,13 @@ namespace Fight.Factory_Pattern.Product
             
             if (player.pokemonPlayer.currentStatePokemon.TakeDamage())
             {
-                Debug.Log($"Vous ne pouvez pas vous enfuir en étant blessé");
+                LogEncounter.Instance.AddMessage($"Vous ne pouvez pas vous enfuir en étant blessé");
                 player.pokemonPlayer.currentStatePokemon = new NormalState();
                 EventManager.OnRoundEnd?.Invoke();
             }
             else
             {
-                Debug.Log($"Vous prenez la fuite !!!");
+                LogEncounter.Instance.AddMessage($"Vous prenez la fuite !!!");
                 End();
             }
             
@@ -111,7 +110,7 @@ namespace Fight.Factory_Pattern.Product
         {
             if (!IsPlayerTurn()) return;
             
-            Debug.Log($"Vous attrapez le pokemon {PokemonNmi.Name}");
+            LogEncounter.Instance.AddMessage($"Vous attrapez le pokemon {PokemonNmi.Name}");
             player.playerListPokemonCatch.Add(PokemonNmi);
             End();
         }
