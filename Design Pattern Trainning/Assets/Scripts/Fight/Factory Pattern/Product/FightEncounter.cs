@@ -5,6 +5,7 @@ using Fight.Factory_Pattern.Enum;
 using Fight.Factory_Pattern.Interface;
 using Observer;
 using Player;
+using StatePattern;
 using UnityEngine;
 
 namespace Fight.Factory_Pattern.Product
@@ -24,18 +25,67 @@ namespace Fight.Factory_Pattern.Product
 
         protected override void EnemyAttack()
         {
+            if (!PokemonNmi.currentStatePokemon.CanAttack())
+            {
+                Debug.Log($"L'ennemi échoue son attaque ");
+                PokemonNmi.currentStatePokemon = new NormalState();
+                EventManager.OnRoundEnd?.Invoke();
+                return;
+            }
+            
+            
             Debug.Log($"{TrainerNmi.Name} ordonne {PokemonNmi.Name} d'attaquer : damage({PokemonNmi.Damage})");
+            
+            if ( Random.Range(0, 6) >= 5)
+            {
+                player.pokemonPlayer.currentStatePokemon = new ParalyzedState();
+                Debug.Log($"Le pokemon enemie vous paralyse");
+            }
+            
+            PokemonNmi.currentStatePokemon = new NormalState();
             base.EnemyAttack();
         }
 
         public void Attack()
         {
             if (!IsPlayerTurn()) return;
-            
-            Debug.Log($"Vous ordonnez {player.pokemonPlayer.Name} d'attaquer : damage({player.pokemonPlayer.Damage}) ");
-            PokemonNmi.Life -= player.pokemonPlayer.Damage;
-            CheckForDead();
+
+            if (player.pokemonPlayer.currentStatePokemon.CanAttack())
+            {
+                Debug.Log($"Vous ordonnez {player.pokemonPlayer.Name} d'attaquer : damage({player.pokemonPlayer.Damage}) ");
+                PokemonNmi.Life -= player.pokemonPlayer.Damage;
+                CheckForDead();
+            }
+            else
+            {
+                Debug.Log($"Votre pokémon échoue son attaque ");
+            }
+            player.pokemonPlayer.currentStatePokemon = new NormalState();
             EventManager.OnRoundEnd?.Invoke();
+        }
+
+        public void Paralyzed()
+        {
+            if (player.pokemonPlayer.currentStatePokemon.CanAttack())
+            {
+                if ( Random.Range(0, 6) >= 5)
+                {
+                    PokemonNmi.currentStatePokemon = new ParalyzedState();
+                    Debug.Log($"Votre pokémon réussie sa paralyzie ");
+                }
+                else
+                {
+                    Debug.Log($"Vous échouez votre paralyzation");
+                }
+                EventManager.OnRoundEnd?.Invoke();
+            }
+            else
+            {
+                Debug.Log($"Vous êtes paralysé");
+                EventManager.OnRoundEnd?.Invoke();
+            }
+            
+            
         }
 
         public void Heal()
@@ -43,7 +93,16 @@ namespace Fight.Factory_Pattern.Product
             if (!IsPlayerTurn()) return;
             
             Debug.Log($"Vous vous soignez de 5 ");
-            player.pokemonPlayer.Life += 5;
+
+            if (!player.pokemonPlayer.currentStatePokemon.CanAttack())
+            {
+                player.pokemonPlayer.currentStatePokemon = new NormalState();
+            }
+            else
+            {
+                player.pokemonPlayer.Life += 5;
+            }
+            
             EventManager.OnRoundEnd?.Invoke();
         }
         
@@ -58,7 +117,7 @@ namespace Fight.Factory_Pattern.Product
         {
             base.Awake();
             
-            ActionsList = new List<string>() { "Attack", "Heal" };
+            ActionsList = new List<string>() { "Attack", "Heal", "Paralyzed" };
 
             PokemonNmi = new Pokemon("ToTo", 20,7);
 

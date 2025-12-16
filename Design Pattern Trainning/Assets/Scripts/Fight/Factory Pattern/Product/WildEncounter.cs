@@ -5,6 +5,7 @@ using Fight.Factory_Pattern.Enum;
 using Fight.Factory_Pattern.Interface;
 using Observer;
 using Player;
+using StatePattern;
 using UnityEngine;
 
 namespace Fight.Factory_Pattern.Product
@@ -22,7 +23,24 @@ namespace Fight.Factory_Pattern.Product
 
         protected override void EnemyAttack()
         {
+            if (PokemonNmi.currentStatePokemon.TakeDamage())
+            {
+                PokemonNmi.currentStatePokemon = new NormalState();
+                PokemonNmi.Life -= 5;
+                CheckForDead();
+                EventManager.OnRoundEnd?.Invoke();
+                return;
+            }
+            
             Debug.Log($"{PokemonNmi.Name} attaque : damage({PokemonNmi.Damage})");
+            
+            
+            if ( Random.Range(0, 6) >= 5)
+            {
+                player.pokemonPlayer.currentStatePokemon = new BleedingState();
+                Debug.Log($"Votre souffrez de saignement ");
+            }
+            
             base.EnemyAttack();
         }
 
@@ -30,7 +48,23 @@ namespace Fight.Factory_Pattern.Product
         {
             if (!IsPlayerTurn()) return;
             
+            if (player.pokemonPlayer.currentStatePokemon.TakeDamage())
+            {
+                player.pokemonPlayer.currentStatePokemon = new NormalState();
+                player.pokemonPlayer.Life -= 5;
+                CheckForDead();
+                EventManager.OnRoundEnd?.Invoke();
+                return;
+            }
+            
             Debug.Log($"Vous ordonnez {player.pokemonPlayer.Name} d'attaquer : damage({player.pokemonPlayer.Damage}) ");
+            
+            if ( Random.Range(0, 6) >= 5)
+            {
+                PokemonNmi.currentStatePokemon = new BleedingState();
+                Debug.Log($"Le pokemon ennemi souffre de saignement ");
+            }
+            
             PokemonNmi.Life -= player.pokemonPlayer.Damage;
             CheckForDead();
             EventManager.OnRoundEnd?.Invoke();
@@ -40,8 +74,17 @@ namespace Fight.Factory_Pattern.Product
         {
             if (!IsPlayerTurn()) return;
             
-            Debug.Log($"Vous vous soignez de 5 ");
-            player.pokemonPlayer.Life += 5;
+            if (player.pokemonPlayer.currentStatePokemon.TakeDamage())
+            {
+                Debug.Log($"Vous vous soignez de tout sort ");
+                player.pokemonPlayer.currentStatePokemon = new NormalState();
+            }
+            else
+            {
+                Debug.Log($"Vous vous soignez de 5 ");
+                player.pokemonPlayer.Life += 5;
+            }
+            
             EventManager.OnRoundEnd?.Invoke();
         }
 
@@ -49,8 +92,19 @@ namespace Fight.Factory_Pattern.Product
         {
             if (!IsPlayerTurn()) return;
             
-            Debug.Log($"Vous prenez la fuite !!!");
-            End();
+            
+            if (player.pokemonPlayer.currentStatePokemon.TakeDamage())
+            {
+                Debug.Log($"Vous ne pouvez pas vous enfuir en étant blessé");
+                player.pokemonPlayer.currentStatePokemon = new NormalState();
+                EventManager.OnRoundEnd?.Invoke();
+            }
+            else
+            {
+                Debug.Log($"Vous prenez la fuite !!!");
+                End();
+            }
+            
         }
 
         public void Catch()
@@ -61,9 +115,7 @@ namespace Fight.Factory_Pattern.Product
             player.playerListPokemonCatch.Add(PokemonNmi);
             End();
         }
-
         
-
         #endregion
 
         #region Unity Methods
@@ -86,10 +138,9 @@ namespace Fight.Factory_Pattern.Product
         {
             encounterGeneratorWild = target;
         }
-
         
-
         #endregion
+
 
         
     }
