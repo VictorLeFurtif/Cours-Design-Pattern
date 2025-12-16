@@ -115,7 +115,14 @@ namespace Fight.Factory_Pattern.Product
             player.playerListPokemonCatch.Add(PokemonNmi);
             End();
         }
-        
+
+        protected override void End()
+        {
+            Destroy(encounterGeneratorWild.gameObject);
+            
+            base.End();
+        }
+
         #endregion
 
         #region Unity Methods

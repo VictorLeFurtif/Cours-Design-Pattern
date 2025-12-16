@@ -12,6 +12,9 @@ namespace Fight.Factory_Pattern.Creator
         GameObject objToSpawn;
         public override void InitialiseEncounter()
         {
+            
+            if (fightHappen) return;
+            
             //create Fight Encounter
             objToSpawn = new GameObject("Wild Encounter");
             wildEncounter = objToSpawn.AddComponent<WildEncounter>();

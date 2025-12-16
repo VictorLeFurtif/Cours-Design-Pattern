@@ -106,7 +106,12 @@ namespace Fight.Factory_Pattern.Product
             EventManager.OnRoundEnd?.Invoke();
         }
         
-        
+        protected override void End()
+        {
+            Destroy(encounterGeneratorFight.gameObject);
+            
+            base.End();
+        }
         
 
         #endregion

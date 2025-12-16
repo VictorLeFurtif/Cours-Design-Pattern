@@ -10,6 +10,7 @@ namespace Fight.Factory_Pattern.Creator
         #region Fields
 
         [SerializeField] protected GameObject buttonPrefabs;
+        protected bool fightHappen = false;
 
         #endregion
 
@@ -18,6 +19,11 @@ namespace Fight.Factory_Pattern.Creator
         private void OnTriggerEnter2D(Collider2D other)
         {
             InitialiseEncounter();
+        }
+
+        public void OnWinPlayer()
+        {
+            fightHappen = true;
         }
         
     }

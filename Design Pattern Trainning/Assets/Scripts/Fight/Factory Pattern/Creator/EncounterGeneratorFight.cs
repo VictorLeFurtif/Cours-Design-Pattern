@@ -8,10 +8,13 @@ namespace Fight.Factory_Pattern.Creator
 {
     public class EncounterGeneratorFight : EncounterGenerator
     {
+        
         private FightEncounter fightEncounter;
         GameObject objToSpawn;
         public override void InitialiseEncounter()
         {
+            if (fightHappen) return;
+            
             //create Fight Encounter
             objToSpawn = new GameObject("Fight Encounter");
             fightEncounter = objToSpawn.AddComponent<FightEncounter>();

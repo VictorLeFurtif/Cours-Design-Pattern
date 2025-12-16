@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Fight.Factory_Pattern.Actor;
+using Fight.Factory_Pattern.Creator;
 using Fight.Factory_Pattern.Enum;
 using Observer;
 using Player;
@@ -18,6 +19,7 @@ namespace Fight.Factory_Pattern.Product
         protected Pokemon PokemonNmi;
         
         protected PlayerCore player;
+        
         
         private void ChangeStateTurn()
         {
@@ -42,8 +44,9 @@ namespace Fight.Factory_Pattern.Product
             return _currentFightState == FightState.Player;
         }
         
-        public void End()
+        protected virtual void End()
         {
+            
             EventManager.OnFightEnd?.Invoke();
             Destroy(gameObject);
         }
