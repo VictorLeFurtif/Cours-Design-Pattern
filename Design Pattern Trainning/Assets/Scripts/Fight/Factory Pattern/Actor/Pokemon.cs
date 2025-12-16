@@ -1,8 +1,9 @@
+using System;
 using StatePattern;
 
 namespace Fight.Factory_Pattern.Actor
 {
-    
+    [Serializable]
     public class Pokemon
     {
         #region Fields

@@ -23,6 +23,8 @@ namespace Adaptateur
         {
             if (trade) return;
 
+            var player = collision.GetComponent<PlayerCore>();
+            
             trade = true;
             switch (tradeType)
             {
@@ -42,8 +44,8 @@ namespace Adaptateur
             
                     pokemonToGetGen1 = poke;
                     
-                    LogEncounter.Instance.AddMessage($"You trade your pokemon {pokemonToGetGen1.namePokemon} from Gen 2 for" +
-                                                     $" {pokemonToTradeTemp.namePokemon} from the Gen 1");
+                    LogEncounter.Instance.AddMessage($"You trade your pokemon {pokemonToTradeTemp.namePokemon} from Gen 2 for" +
+                                                     $" {player.pokemonCurrentGen2.namePokemon} from Gen 1");
                     break;
                 case TradeType.Gen1ToGen2:
                     Gen1ToGen2 pokemon = ScriptableObject.CreateInstance<Gen1ToGen2>();
@@ -60,8 +62,8 @@ namespace Adaptateur
 
                     pokemonToGetGen2 = pokemon;
                     
-                    LogEncounter.Instance.AddMessage($"You trade your pokemon {pokemonToGetGen2.namePokemon} from Gen 1 for" +
-                                                     $" {pokemonTradeTemp.namePokemon} from the Gen 2");
+                    LogEncounter.Instance.AddMessage($"You trade your pokemon {pokemonTradeTemp.namePokemon} from Gen 1 for" +
+                                                     $" {player.pokemonCurrentGen1.namePokemon} from Gen 2");
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
